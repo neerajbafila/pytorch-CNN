@@ -1,0 +1,8 @@
+Log_folder : "Logs"
+Data:
+  root_data_folder: Data
+params:
+  BATCH_SIZE: 32
+  LR: 0.001
+  IMAGE_SIZE: (28,28)
+  SEED: 2022
