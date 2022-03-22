@@ -1,7 +1,6 @@
 import logging
 import os
 import argparse
-from random import shuffle
 import torch
 from torch.utils.data import DataLoader
 from torchvision import transforms, datasets
@@ -36,7 +35,7 @@ def main(config_path):
     train_data_loader = DataLoader(dataset=train_data, shuffle=True, batch_size=content['params']['BATCH_SIZE'])
     test_data_loader = DataLoader(dataset=test_data, batch_size=content['params']['BATCH_SIZE'], shuffle=False)
 
-    return train_data, test_data
+    return train_data_loader, test_data_loader
 
 if __name__ == "__main__":
     
@@ -44,9 +43,11 @@ if __name__ == "__main__":
     parser.add_argument("--config", "-c", default="config/config.yaml")
     parsed_args = parser.parse_args()
     try:
+        logging.info("\n************************************")
         logging.info(f">>>>>>>>>>>>>>>>>{STAGE} started<<<<<<<<<<<<<<<")
         main(config_path=parsed_args.config)
         logging.info(f">>>>>>>>>>>>>>>>>{STAGE} completed<<<<<<<<<<<<<<<")
+        logging.info("\n************************************")
     except Exception as e:
         print(e)
         logging.exception(e)

@@ -14,13 +14,13 @@ entry_points:
     command: "python src/stage_01_get_data.py" 
   
   base_model_creation:
-    config: {type: str, default: "config/config.yaml"}
-    command: "python src/stage_02_base_model_creation.py"
+    parameters:
+      config_path: {type: str, default: "config/config.yaml"}
+    command: "python src/stage_02_base_model_creation.py -c {config_path}"
   
-  prepare_callbacks:
-    config: {type: str, default: "config/config.yaml"}
-    command: "python src/stage_03_prepare_callbacks.py"
-  
-  model_training:
-    config: {type: str, default: "config/config.yaml"}
-    command: "python src/stage_04_model_train.py"
+  training_model:
+    parameters:
+      config_path: {type: str, default: "config/config.yaml"}
+    command: "python src/stage_03_training_model.py -c {config_path}"
+
+ 
