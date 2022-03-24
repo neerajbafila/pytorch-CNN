@@ -29,13 +29,17 @@ def main(config_path):
     train_data = datasets.FashionMNIST(root=data_folder_path, train=True, download=True,
                                         transform=transforms.ToTensor())
     test_data = datasets.FashionMNIST(root=data_folder_path, train=False, download=True, transform= transforms.ToTensor())
+    given_label = train_data.class_to_idx
+    label_map = {val: key for key, val in given_label.items()}
     logging.info(f"data is available at {data_folder_path}")
 
     logging.info(f"getting dataloader")
     train_data_loader = DataLoader(dataset=train_data, shuffle=True, batch_size=content['params']['BATCH_SIZE'])
     test_data_loader = DataLoader(dataset=test_data, batch_size=content['params']['BATCH_SIZE'], shuffle=False)
 
-    return train_data_loader, test_data_loader
+    return train_data_loader, test_data_loader, label_map
+
+
 
 if __name__ == "__main__":
     

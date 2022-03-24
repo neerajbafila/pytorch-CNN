@@ -31,7 +31,7 @@ def main(config_path):
         logging.info(f"{loaded_model} is loaded in {DEVICE}")
         LR = content['params']['LR']
         optimizer = torch.optim.Adam(loaded_model.parameters(), lr=LR) # optimizer
-        train_data_loader, test_data_loader = stage_01_get_data.main(config_path)
+        train_data_loader, test_data_loader, label_map = stage_01_get_data.main(config_path)
         EPOCHS = content['Epoch']
         criterion = nn.CrossEntropyLoss() # loss function
         for epoch in range(EPOCHS):

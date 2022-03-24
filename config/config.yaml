@@ -4,11 +4,14 @@ Data:
 artifacts:
   model: artifacts
   base_model: base_model.pth
-  trained_model: trained_model.pth 
+  trained_model: trained_model.pth
+  confusion_matrix_fig: confusion_matrix.png
+
 params:
   BATCH_SIZE: 32
   LR: 0.001
   IMAGE_SIZE: (28,28)
   SEED: 2022
-
 Epoch: 1
+evaluation:
+  no_of_test_batches: 1 #1 batch contain batch_size images
