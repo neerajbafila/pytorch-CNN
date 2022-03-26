@@ -14,7 +14,7 @@ from src import stage_01_get_data
 
 STAGE = "evaluation_model"
 logging.basicConfig(filename=os.path.join('logs', 'running_logs.log'),
-                    format="[s(asctime)%: %(levelname)s: %(module)s]: %(message)s",
+                    format="[%(asctime)s: %(levelname)s: %(module)s]: %(message)s",
                     filemode="a"
 )
 

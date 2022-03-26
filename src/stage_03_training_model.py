@@ -12,7 +12,8 @@ from src.stage_02_base_model_creation import CNN
 from src.utils.common import read_yaml, create_directories
 
 logging.basicConfig(filename=os.path.join("logs", "running_logs.log"),
-                    format="[s(asctime)%: %(levelname)s: %(module)s]: %(message)s",
+                    format="[%(asctime)s: %(levelname)s: %(module)s]: %(message)s",
+                    level=logging.INFO,
                     filemode="a"
                     )
 
